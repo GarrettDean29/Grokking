@@ -1,0 +1,26 @@
+function getTokens(rawString) { // Declared function.
+  // NB: `.filter(Boolean)` removes any falsy items from an array
+  return rawString.toLowerCase().split(/[ ,!.";:-]+/).filter(Boolean).sort(); //This line is here to set the style of the text when using console.log().
+}
+
+function mostFrequentWord(text) { // This is another declared function. 
+  let words = getTokens(text); // This line is assigning the variable "words" to "getTokens" and its value "text"
+  let wordFrequencies = {}; // This is a declaration of the variable for a later usage (as block scope). 
+  for (let i = 0; i <= words.length; i++) { //This is creating a for loop to allow the basis of the loop to run as long as "i" is less than "words.length" (which is an array or the variable length), and from zero "i" will be added by one.
+    if (words[i] in wordFrequencies) { // This is creating a variable that says as long as the variable "words[i]" is within "wordFrequences" range to allow it to run the following argument.
+      wordFrequencies[words[i]]++; // An argument that is stating to add one as long as the value to "words" is true.
+    } else {
+      wordFrequencies[words[i]] = 1; // An argument stating if the argument is not infact true (in other words flase) to just make the value 1. 
+    }
+  }
+  let currentMaxKey = Object.keys(wordFrequencies)[0]; // This is to allow all keys of the object to be alled and placed as an array starting at the value of [0].
+  let currentMaxCount = wordFrequencies[currentMaxKey]; // This is the attatchment of one variable toa nother.
+
+  for (let word in wordFrequencies) { // A created loop for the variable following it.
+    if (wordFrequencies[word] > currentMaxCount) { // A declared boolean that if "wordFrequencies[word]" is greater than "currentMaxCount" do the following.
+      currentMaxKey = word; // Attaching the first varaible to the next.
+      currentMaxCount = wordFrequencies[word]; // Attaching the first variable to the second.
+    }
+  }
+  return currentMaxKey; // This is the area to return the result of all arguments and values following up to the solution of "currentMaxKey". 
+}
