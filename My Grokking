@@ -1,23 +1,27 @@
 function getTokens(rawString) { // Declared function.
   // NB: `.filter(Boolean)` removes any falsy items from an array
-  return rawString.toLowerCase().split(/[ ,!.";:-]+/).filter(Boolean).sort(); //This line is here to set the style of the text when using console.log().
+  return rawString.toLowerCase().split(/[ ,!.";:-]+/).filter(Boolean).sort(); //This line is here to set the style of the text when using console.log(). First is sets all things to lower case when using "toLowerCase()". Then when using ".split" it is breaking up a whole string into substrings
+  //by breaking a whole object into an array of strings. Finally ".sort" is used to put the elements in an array in an ordered fashioned then it returns the array in its sorted order. 
+  .
 }
 
 function mostFrequentWord(text) { // This is another declared function. 
-  let words = getTokens(text); // This line is assigning the variable "words" to "getTokens" and its value "text"
+  let words = getTokens(text); // Words is a variable that has all the edited parts of the text attatched to it. By assigning it to "getTokens(text)" it is attatching those rules .This line is assigning the variable "words" to "getTokens" and its value "text"
   let wordFrequencies = {}; // This is a declaration of the variable for a later usage (as block scope). 
   for (let i = 0; i <= words.length; i++) { //This is creating a for loop to allow the basis of the loop to run as long as "i" is less than "words.length" (which is an array or the variable length), and from zero "i" will be added by one.
     if (words[i] in wordFrequencies) { // This is creating a variable that says as long as the variable "words[i]" is within "wordFrequences" range to allow it to run the following argument.
-      wordFrequencies[words[i]]++; // An argument that is stating to add one as long as the value to "words" is true.
+      wordFrequencies[words[i]]++; // An action that is stating to add one as long as the value to "words" is true.
     } else {
-      wordFrequencies[words[i]] = 1; // An argument stating if the argument is not infact true (in other words flase) to just make the value 1. 
+      wordFrequencies[words[i]] = 1; // An action stating if the argument is not infact true (in other words flase) to just make the value 1. 
     }
   }
-  let currentMaxKey = Object.keys(wordFrequencies)[0]; // This is to allow all keys of the object to be alled and placed as an array starting at the value of [0].
-  let currentMaxCount = wordFrequencies[currentMaxKey]; // This is the attatchment of one variable toa nother.
+  let currentMaxKey = Object.keys(wordFrequencies)[0]; // This is to allow all keys of the object to be called and placed as an array starting at the value of [0]. When you use the "[0]" it is only attaching the first variable to the very first value in the array within the keys.
+  //Done so by following up the "Object.keys(word.frequncies)" with "[0]".
+  let currentMaxCount = wordFrequencies[currentMaxKey]; // This is the attatchment of one variable to another. It is done by placing the "=" and it usually done to link or combine the two properties of the variables.
 
   for (let word in wordFrequencies) { // A created loop for the variable following it.
-    if (wordFrequencies[word] > currentMaxCount) { // A declared boolean that if "wordFrequencies[word]" is greater than "currentMaxCount" do the following.
+    if (wordFrequencies[word] > currentMaxCount) { // A declared boolean that if "wordFrequencies[word]" is greater than "currentMaxCount" do the following. This is done to get a true or false statement. There for you can tell if the code presented is either falsy or not. 
+    //It is also to get an interactive webpage that depends on the users input.
       currentMaxKey = word; // Attaching the first varaible to the next.
       currentMaxCount = wordFrequencies[word]; // Attaching the first variable to the second.
     }
